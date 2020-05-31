@@ -1,4 +1,4 @@
-# Invenimus Lane Detection Project
+# INVENIMUS Lane Detection Project
 
 The project is made to detect lane lines on the road. The video was taken from a car where the camera was mounted on the front.
 If you want you may adapt this project to a real-time camera recorder to drive a car.
