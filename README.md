@@ -7,9 +7,10 @@ If you want you may adapt this project to a real-time camera recorder to drive a
 
 Link to the source video: [video for this project](https://drive.google.com/file/d/1mYk9oNOKacxl6x6NOK5gxOdYJuafFPd7/view?usp=sharing)<br> Result video: [video with detected lanes](https://youtu.be/ikBwVa_SXuc).
 
-**Several steps need to be taken to successfully run the code:**<br>
+### Several steps need to be taken to successfully run the code
 On default video:
 - just run `main.py`
+<br>
 On custom video:
 - Add video in `input` folder project folder;
 - Adjust the path to the video in `main.py`
