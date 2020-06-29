@@ -10,9 +10,9 @@ Link to the source video: [video for this project](https://drive.google.com/file
 ### Several steps need to be taken to successfully run the code
 On default video:
 - just run `main.py`
-<br>
+
 On custom video:
-- Add video in `input` folder project folder;
+- Add video in `input` folder project folder
 - Adjust the path to the video in `main.py`
 - Run `main.py`
 
