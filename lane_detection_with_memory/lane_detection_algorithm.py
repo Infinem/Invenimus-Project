@@ -50,10 +50,10 @@ def histogram(frame):
     
     histogram = np.sum(frame, axis=0)   # Build histogram
     midpoint = np.int(histogram.shape[0]/2)     # Find mid point on histogram
-    leftx_base = np.argmax(histogram[:midpoint])    # Compute the left max pixels
-    rightx_base = np.argmax(histogram[midpoint:]) + midpoint    # Compute the right max pixels
+    left_x_base = np.argmax(histogram[:midpoint])    # Compute the left max pixels
+    right_x_base = np.argmax(histogram[midpoint:]) + midpoint    # Compute the right max pixels
 
-    return leftx_base, rightx_base
+    return left_x_base, right_x_base
 
 def warp_perspective(frame):
     """ Function for warping the frame 
@@ -252,14 +252,14 @@ def get_floating_center(frame, lane_lines):
     
     return avg_up_mid, low_mid       # Return shifting points
 
-def add_text(frame, image_center, right_lane_pos, left_lane_pos):
+def add_text(frame, image_center, left_x_base, right_x_base):
     """ Function for text outputing
     Output the direction of turn"""
     
     global memory_text
     global memory_deviation
 
-    lane_center = left_lane_pos + (right_lane_pos - left_lane_pos) / 2 # Find lane center between two lines
+    lane_center = left_x_base + (right_x_base - left_x_base) / 2 # Find lane center between two lines
     
     if len(memory_deviation) < 5:
         deviation = image_center - lane_center    # Find the deviation
@@ -305,7 +305,7 @@ def process_frame(frame):
     roi_frame = region_of_interest(canny_edges)   # Draw region of interest
 
     warped_frame = warp_perspective(canny_edges)    # Warp the original frame, make it skyview
-    leftx, rightx = histogram(warped_frame)         # Take x bases for two lines
+    left_x_base, right_x_base = histogram(warped_frame)         # Take x bases for two lines
     lines = detect_lines(roi_frame)                 # Detect lane lines on the frame
     lane_lines = optimize_lines(frame, lines)       # Optimize detected line
     lane_lines_image = display_lines(frame, lane_lines) # Display solid and optimized lines
@@ -314,7 +314,7 @@ def process_frame(frame):
 
     heading_line = display_heading_line(lane_lines_image, up_center, low_center)
 
-    final_frame = add_text(heading_line, low_center, leftx, rightx) # Predict and draw turn
+    final_frame = add_text(heading_line, low_center, left_x_base, right_x_base) # Predict and draw turn
 
     fps = round(1.0 / (time.time() - start_time), 1)    # Here we calculate the fps
     fps_list.append(fps)           # Append fps to fps list
