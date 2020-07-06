@@ -7,10 +7,14 @@ If you want you may adapt this project to a real-time camera recorder to drive a
 
 Link to the source video: [video for this project](https://drive.google.com/file/d/1mYk9oNOKacxl6x6NOK5gxOdYJuafFPd7/view?usp=sharing)<br> Result video: [video with detected lanes](https://youtu.be/ikBwVa_SXuc).
 
-Several steps need to be taken to successfully run the code:
-- Add video in project folder;
+### Several steps need to be taken to successfully run the code
+On default video:
+- just run `main.py`
+
+On custom video:
+- Add video in `input` folder project folder
 - Adjust the path to the video in `main.py`
 - Run `main.py`
 
-TODO:
-- Add tutorial
+### Tutorial
+https://medium.com/@SunEdition/lane-detection-and-turn-prediction-algorithm-for-autonomous-vehicles-6423f77dc841?sk=ff65d1e9b564bb3a3adfe52e0fa71fe1
